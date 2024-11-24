@@ -6,7 +6,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // Menggunakan EJS
 app.set('view engine', 'ejs');
@@ -135,12 +135,15 @@ app.use('/', (req, res) => {
   res.send('Halaman tidak di temukan!');
 });
 
-app.listen(port, (error) => {
-  if (error) {
-    console.log('Tidak dapat menjalankan server');
-  } else {
-    console.log(`Server berjalan di port ${port}`);
-  }
-});
+// app.listen(port, (error) => {
+//   if (error) {
+//     console.log('Tidak dapat menjalankan server');
+//   } else {
+//     console.log(`Server berjalan di port ${port}`);
+//   }
+// });
 
-module.exports = app;
+const http = require('http');
+const server = http.createServer(app);
+
+module.exports = server;
