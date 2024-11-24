@@ -142,3 +142,5 @@ app.listen(port, (error) => {
     console.log(`Server berjalan di port ${port}`);
   }
 });
+
+module.exports = app;
