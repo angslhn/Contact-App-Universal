@@ -1,0 +1,22 @@
+<div class="add-contact-wrapper">
+    <div class="add-contact">
+        <h2>Ubah Kontak</h2>
+        <% if (typeof errors != 'undefined') { %>
+            <% errors.forEach(error => { %>
+                <p><%= error.msg  %></p>
+            <% }) %>
+        <% } %>
+        <form action="/contact/update" method="post">
+            <input type="hidden" name="oldNama" value="<%= contact.oldNama || contact.nama %>">
+            <div class="nama">
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" id="nama" autocomplete="off" value="<%= contact.nama %>" required>
+            </div>
+            <div class="nohp">
+                <label for="nohp">No Handphone</label>
+                <input type="number" inputmode="numeric" name="nohp" id="nohp" autocomplete="off" value="<%= contact.nohp %>" required>
+            </div>
+            <button type="submit">SIMPAN</button>
+        </form>
+    </div>
+</div>

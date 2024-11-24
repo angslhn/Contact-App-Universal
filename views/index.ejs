@@ -1,0 +1,39 @@
+<div class="kontak-data">
+  <h1>DAFTAR KONTAK</h1>
+  <a class="add" href="/contact/add">Tambah</a>
+  <% if(msg.length !== 0) { %>
+    <p><%= msg  %></p>
+  <% } %>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>No Hp</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (contacts.length == 0) { %>
+      <tr>
+        <td colspan="4">Data kontak tidak tersedia.</td>
+      </tr>
+      <% } else { %> <% contacts.forEach((contact, index) => { index++ %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= contact.nama %></td>
+        <td><%= contact.nohp %></td>
+        <td>
+          <a href="/detail/<%= contact.nama %>">Detail</a>
+        </td>
+      </tr>
+      <% }) %> <% } %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Jumlah data</td>
+        <td colspan="2"><%= contacts.length %></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

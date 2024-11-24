@@ -1,0 +1,16 @@
+<div class="data-kontak-wrapper">
+  <div class="data-kontak-detail">
+    <h2>Data Kontak</h2>
+    <% if (!contact) { %>
+    <p>Maaf Kontak Tidak Ada</p>
+    <% } else { %>
+    <p>Nama : <%= contact.nama %></p>
+    <p>No Handphone : <%= contact.nohp %></p>
+    <% } %>
+    <div class="option-contact">
+      <a href="/">Kembali</a>
+      <a href="/contact/edit/<%= contact.nama %>">Ubah</a>
+      <a href="/contact/delete/<%= contact.nama %>" onclick="return confirm('Hapus Kontak?')">Hapus</a>
+    </div>
+  </div>
+</div>
